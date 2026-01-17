@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Topaz Water Polo - Monthly Calendar&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>* {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #1a4d7a 0%, #0d2a47 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 700px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 20px 60px rgba(0,0,0,0.4);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #1a4d7a 0%, #0d2a47 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 50px 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header::before {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>right: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>bottom: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: url('data:image/svg+xml,&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"&gt;&lt;circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/&gt;&lt;/svg&gt;');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-size: 100px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.3;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header-content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 1;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2.8em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 800;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 1px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.header .subtitle {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.3em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.95;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 300;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.content {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 50px 40px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.form-group {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 35px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>label {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a4d7a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.15em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.3px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>select, input {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #d1d5db;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.05em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>select:hover, input:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #1a4d7a;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>select:focus, input:focus {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-color: #1a4d7a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 0 4px rgba(26, 77, 122, 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #1a4d7a 0%, #0d2a47 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px 40px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn:hover {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-3px);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 12px 30px rgba(26, 77, 122, 0.4);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn:active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transform: translateY(-1px);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.preview {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: linear-gradient(135deg, #f0f4f8 0%, #e6eef5 100%);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 2px solid #d1e3f0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.preview h3 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a4d7a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.3em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.color-indicator {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-left: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>vertical-align: middle;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 3px solid white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 2px 8px rgba(0,0,0,0.2);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.calendar-preview {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 15px rgba(0,0,0,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.calendar-preview h4 {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #1a4d7a;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.1em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.calendar-preview p {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #4b5563;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.8;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1em;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.footer {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #6b7280;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9em;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 600px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 2em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.header .subtitle {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>font-size: 1.1em;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>.content {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>padding: 35px 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="header-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h1&gt;🏊 TOPAZ&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="subtitle"&gt;WATER POLO CLUB&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label for="group"&gt;Select Your Group&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;select id="group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;option value="black"&gt;Topaz Black&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;option value="orange"&gt;Topaz Orange&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;option value="blue"&gt;Topaz Blue&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;option value="girls"&gt;Topaz Girls&lt;/option&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/select&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;label for="month"&gt;Select Month&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="month" id="month"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button class="btn" onclick="generatePDF()"&gt;📥 Download Calendar&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="preview"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span id="selected-group"&gt;Topaz Black&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;span class="color-indicator" id="color-preview" style="background: #000;"&gt;&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="calendar-preview"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;h4&gt;Your calendar will include:&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>✓ Topaz Water Polo branding&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>✓ Full monthly calendar view&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>✓ Group color coding&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>✓ Professional print-ready format</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="footer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>© 2025 Topaz Water Polo Club</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const { jsPDF } = window.jspdf;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ====================================================================</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ADMIN: UPDATE YOUR GOOGLE DRIVE CALENDAR LINKS HERE</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Parents won't see this - it's only in the code</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ====================================================================</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const CALENDAR_LINKS = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>black: 'https://drive.google.com/your-topaz-black-calendar-link',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>orange: 'https://drive.google.com/your-topaz-orange-calendar-link',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>blue: 'https://drive.google.com/your-topaz-blue-calendar-link',</p>
+<p class="p1"><span class="Apple-converted-space">            </span>girls: 'https://drive.google.com/your-topaz-girls-calendar-link'</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ====================================================================</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>const groupColors = {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>black: { primary: '#000000', secondary: '#333333', name: 'Topaz Black' },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>orange: { primary: '#FF6B35', secondary: '#F7931E', name: 'Topaz Orange' },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>blue: { primary: '#1E88E5', secondary: '#42A5F5', name: 'Topaz Blue' },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>girls: { primary: '#E91E63', secondary: '#F06292', name: 'Topaz Girls' }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Set default month to current month</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const now = new Date();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('month').value = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Update preview when group changes</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('group').addEventListener('change', function() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const group = this.value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const groupInfo = groupColors[group];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('selected-group').textContent = groupInfo.name;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('color-preview').style.background = groupInfo.primary;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function generatePDF() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const group = document.getElementById('group').value;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const monthInput = document.getElementById('month').value;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (!monthInput) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>alert('Please select a month');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const [year, month] = monthInput.split('-');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const groupInfo = groupColors[group];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const calendarLink = CALENDAR_LINKS[group];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const monthName = new Date(year, month - 1).toLocaleString('default', { month: 'long', year: 'numeric' });</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const doc = new jsPDF();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const pageWidth = doc.internal.pageSize.getWidth();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const pageHeight = doc.internal.pageSize.getHeight();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Header with Topaz branding - using navy blue color</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFillColor(13, 42, 71); // #0d2a47</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.rect(0, 0, pageWidth, 45, 'F');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Logo circle</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFillColor(255, 255, 255);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.circle(25, 22, 12, 'F');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFillColor(13, 42, 71);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFontSize(16);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFont(undefined, 'bold');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.text('T', 21.5, 27);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Title</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setTextColor(255, 255, 255);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFontSize(26);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFont(undefined, 'bold');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.text('TOPAZ WATER POLO', pageWidth / 2, 20, { align: 'center' });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFontSize(12);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFont(undefined, 'normal');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.text('CLUB', pageWidth / 2, 28, { align: 'center' });</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Group name with color</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFontSize(16);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const r = parseInt(groupInfo.primary.slice(1, 3), 16);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const g = parseInt(groupInfo.primary.slice(3, 5), 16);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const b = parseInt(groupInfo.primary.slice(5, 7), 16);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFillColor(r, g, b);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.rect(pageWidth / 2 - 40, 32, 80, 9, 'F');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setTextColor(255, 255, 255);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFont(undefined, 'bold');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.text(groupInfo.name, pageWidth / 2, 38.5, { align: 'center' });</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Month and Year</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setTextColor(0, 0, 0);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFontSize(22);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFont(undefined, 'bold');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.text(monthName, pageWidth / 2, 60, { align: 'center' });</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Calendar grid</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const startY = 75;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const cellWidth = (pageWidth - 20) / 7;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const cellHeight = 25;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Days of week</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFillColor(r, g, b);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.rect(10, startY, pageWidth - 20, cellHeight, 'F');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setTextColor(255, 255, 255);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFontSize(11);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFont(undefined, 'bold');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>days.forEach((day, i) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>doc.text(day, 10 + i * cellWidth + cellWidth / 2, startY + cellHeight / 2 + 2, { align: 'center' });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Calendar days</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const firstDay = new Date(year, month - 1, 1).getDay();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const daysInMonth = new Date(year, month, 0).getDate();</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>let currentDay = 1;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>let currentY = startY + cellHeight;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setTextColor(0, 0, 0);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFont(undefined, 'normal');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFontSize(13);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let week = 0; week &lt; 6; week++) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>for (let day = 0; day &lt; 7; day++) {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const x = 10 + day * cellWidth;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>const y = currentY;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// Draw cell border</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>doc.setDrawColor(220, 220, 220);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>doc.rect(x, y, cellWidth, cellHeight);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// Add day number</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if ((week === 0 &amp;&amp; day &gt;= firstDay) || (week &gt; 0 &amp;&amp; currentDay &lt;= daysInMonth)) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>doc.setFont(undefined, 'bold');</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>doc.text(String(currentDay), x + 5, y + 8);</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>currentDay++;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>currentY += cellHeight;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>if (currentDay &gt; daysInMonth) break;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Footer</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFontSize(9);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setTextColor(13, 42, 71);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFont(undefined, 'bold');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.text('TOPAZ WATER POLO CLUB', pageWidth / 2, pageHeight - 15, { align: 'center' });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFontSize(8);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.setFont(undefined, 'normal');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.textWithLink('View Full Calendar Online', pageWidth / 2, pageHeight - 10, {<span class="Apple-converted-space"> </span></p>
+<p class="p1"><span class="Apple-converted-space">                </span>align: 'center',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>url: calendarLink</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Save PDF</p>
+<p class="p1"><span class="Apple-converted-space">            </span>doc.save(`Topaz_${groupInfo.name.replace(' ', '_')}_${monthName.replace(' ', '_')}.pdf`);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
